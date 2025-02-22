@@ -1,0 +1,24 @@
+.articlesList {
+  list-style: none;
+  padding: 16px 0 0 0;
+  max-width: 750px;
+  margin: 0 auto 0 auto;
+  box-sizing: border-box;
+}
+.paginationContainer {
+  margin-top: 26px;
+  padding-bottom: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.load {
+  position: absolute;
+  top: 48%;
+  left: 40%;
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0%;
+}

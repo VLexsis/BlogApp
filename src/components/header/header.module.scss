@@ -1,0 +1,140 @@
+.headerContainer {
+  position: fixed; /* Фиксируем header */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Убедимся, что header находится поверх других элементов */
+  display: flex;
+  justify-content: space-between; /* Разделяет элементы по краям */
+  align-items: center; /* Выравнивает элементы по вертикали */
+  padding: 16px;
+  height: 80px;
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.autorzationsContainer {
+  display: flex;
+  gap: 22px; /* Отступ между ссылками */
+}
+
+.link {
+  color: rgba(0, 0, 0, 0.85);
+  text-decoration: none;
+  font-family: Inter, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  margin-left: 35px;
+  padding: 8px 16px; /* Отступы для текста */
+  border: none; /* Убираем стандартные стили кнопки */
+  background: none; /* Убираем стандартный фон кнопки */
+  cursor: pointer; /* Указатель при наведении */
+
+  &:hover {
+    color: rgb(82, 196, 26);
+    border: 1px solid rgb(82, 196, 26);
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+}
+
+.menu {
+  color: rgba(0, 0, 0, 0.85);
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0%;
+  line-height: 28px;
+  padding: 8px;
+
+  &:hover {
+    color: rgb(82, 196, 26);
+    border: 1px solid rgb(82, 196, 26);
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+}
+
+.avatarLink {
+  color: rgba(0, 0, 0, 0.85);
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  display: flex;
+  align-items: center; /* Выравнивание по вертикали */
+  letter-spacing: 0%;
+  gap: 22px;
+}
+
+.avatarLink img {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%; /* Круглая форма аватара */
+}
+
+.logOutButton {
+  position: relative;
+  margin-right: 7px;
+  top: 5px;
+  width: 109px;
+  height: 51px;
+  color: rgba(0, 0, 0, 0.75);
+  font-family: Inter;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 28px;
+  letter-spacing: 0%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.75);
+  border-radius: 7px;
+}
+
+.createButton {
+  position: relative;
+  top: 11px;
+  color: rgba(0, 0, 0, 0.85);
+  text-decoration: none;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+  background: none; /* Убирает фон */
+  border: none; /* Убирает границы */
+  cursor: pointer; /* Указатель при наведении */
+
+  &:hover {
+    color: rgb(82, 196, 26);
+    border: 1px solid rgb(82, 196, 26);
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+}
+
+.createButtonAuth {
+  position: relative;
+  top: 20px;
+  color: rgba(0, 0, 0, 0.85);
+  text-decoration: none;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+  text-align: left;
+  background: none; /* Убирает фон */
+  border: none; /* Убирает границы */
+  cursor: pointer; /* Указатель при наведении */
+
+  &:hover {
+    color: rgb(82, 196, 26);
+    border: 1px solid rgb(82, 196, 26);
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+}
