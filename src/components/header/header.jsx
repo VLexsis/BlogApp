@@ -19,7 +19,7 @@ function Header() {
   };
 
   return (
-    <div className={styles.headerContainer}>
+    <div className={styles.headContainer}>
       <Link to="/articles" className={styles.menu}>
         Realworld Blog
       </Link>
