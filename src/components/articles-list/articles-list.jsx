@@ -7,6 +7,7 @@ import styles from "./articles-list.module.scss";
 import Article from "../article/article";
 import { useGetArticlesQuery } from "../../api/api";
 
+
 function ArticlesList() {
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(5);

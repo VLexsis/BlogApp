@@ -23,8 +23,7 @@ function Header() {
       <Link to="/articles" className={styles.menu}>
         Realworld Blog
       </Link>
-      <div className={styles.autorzationsContainer}>
-        {/* Кнопка "Create article" всегда на одном уровне */}
+      <div className={styles.authContainer}>
         <Link to="/new-article">
           <button
             className={
