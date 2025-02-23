@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ReactMarkdown from "react-markdown";
 import { Popconfirm } from "antd";
-import { LoadingOutlined } from "@ant-design/icons";
+import { LoadingOutlined, HeartOutlined, HeartFilled } from "@ant-design/icons";
 import { Flex, Spin } from "antd";
 import { useParams } from "react-router-dom";
 import {
@@ -27,14 +27,14 @@ function ArticlePage() {
 
   const [isLiked, setIsLiked] = useState(data?.article?.favorited || false);
   const [likesCount, setLikesCount] = useState(
-    data?.article?.favoritesCount || 0,
+    data?.article?.favoritesCount || 0
   );
 
   const isAuthor =
     currentUserData?.user?.username === data?.article?.author?.username;
 
   useEffect(() => {
-    if (data) {
+    if (data?.article) {
       setIsLiked(data.article.favorited);
       setLikesCount(data.article.favoritesCount);
     }
@@ -65,7 +65,6 @@ function ArticlePage() {
         setLikesCount((prev) => prev + 1);
       }
       setIsLiked((prev) => !prev);
-      refetch();
     } catch (err) {
       console.error("Failed to toggle like:", err);
       alert("Failed to toggle like. Please try again.");
@@ -83,12 +82,8 @@ function ArticlePage() {
     );
   }
 
-  if (isError) {
-    return <div>Error</div>;
-  }
-
-  if (!data) {
-    return <div>No data available</div>;
+  if (isError || !data) {
+    return <div>Error or no data available</div>;
   }
 
   const startDate = new Date(data.article.createdAt);
@@ -101,7 +96,12 @@ function ArticlePage() {
           <div className={styles.titleContainer}>
             <h1 className={styles.title}>{data.article.title}</h1>
             <button className={styles.likes} onClick={handleLike}>
-              {isLiked ? "❤️" : "♡"} {likesCount}
+              {isLiked ? (
+                <HeartFilled style={{ color: "red" }} />
+              ) : (
+                <HeartOutlined />
+              )}{" "}
+              {likesCount}
             </button>
           </div>
           <div className={styles.author}>
@@ -121,11 +121,12 @@ function ArticlePage() {
         {isAuthor && (
           <div className={styles.buttonsContainer}>
             <Popconfirm
-              title="Delete the task"
-              description="Are you sure to delete this task?"
+              title="Delete the article"
+              description="Are you sure you want to delete this article?"
               onConfirm={() => onDelete(slug)}
               okText="Yes"
               cancelText="No"
+              okButtonProps={{ danger: true }}
             >
               <button className={styles.buttonDelete}>Delete</button>
             </Popconfirm>
@@ -142,7 +143,17 @@ function ArticlePage() {
           ))}
         </div>
         <div className={styles.description}>{data.article.description}</div>
-        <ReactMarkdown className={styles.articleBody}>
+        <ReactMarkdown
+          components={{
+            p: ({ node, ...props }) => (
+              <p className={styles.articleBody} {...props} />
+            ),
+            h1: ({ node, ...props }) => (
+              <h1 className={styles.heading} {...props} />
+            ),
+            a: ({ node, ...props }) => <a className={styles.link} {...props} />,
+          }}
+        >
           {data.article.body}
         </ReactMarkdown>
       </article>
