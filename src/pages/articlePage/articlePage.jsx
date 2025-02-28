@@ -29,6 +29,7 @@ function ArticlePage() {
   const [likesCount, setLikesCount] = useState(
     data?.article?.favoritesCount || 0
   );
+  const [isLoadingLike, setLoadingLike] = useState(false);
 
   const isAuthor =
     currentUserData?.user?.username === data?.article?.author?.username;
@@ -51,6 +52,9 @@ function ArticlePage() {
   };
 
   const handleLike = async () => {
+    if (isLoadingLike) return;
+    setLoadingLike(true);
+
     if (!currentUserData) {
       alert("You need to be logged in to like articles.");
       return;
@@ -69,6 +73,7 @@ function ArticlePage() {
       console.error("Failed to toggle like:", err);
       alert("Failed to toggle like. Please try again.");
     }
+    setLoadingLike(false);
   };
 
   if (isLoading) {

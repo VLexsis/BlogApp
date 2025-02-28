@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Pagination } from "antd";
-import { Link } from "react-router-dom";
 import { LoadingOutlined } from "@ant-design/icons";
 import { Flex, Spin } from "antd";
 import styles from "./articles-list.module.scss";
 import Article from "../article/article";
 import { useGetArticlesQuery } from "../../api/api";
-
 
 function ArticlesList() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,7 +17,6 @@ function ArticlesList() {
     limit: pageSize,
   });
 
-  // Обработчик изменения страницы
   const handlePageChange = (page, size) => {
     setCurrentPage(page);
     setPageSize(size);
@@ -41,12 +38,8 @@ function ArticlesList() {
       <ul className={styles.articlesList}>
         {data.articles.map((article) => (
           <li key={article.slug}>
-            <Link
-              to={`/articles/${article.slug}`}
-              className={styles.articleLink}
-            >
-              <Article key={article.slug} article={article} />
-            </Link>
+            {/* Убираем <Link> отсюда */}
+            <Article key={article.slug} article={article} />
           </li>
         ))}
       </ul>
