@@ -117,31 +117,27 @@ function ArticleFormPage({ mode = "create" }) {
           <label>
             Short description
             <input
-              className={
-                errors.shortDescription ? styles.inputError : styles.input
-              }
+              className={errors.description ? styles.inputError : styles.input}
               placeholder="Short description"
               {...register("description", {
                 required: "This field is required",
               })}
             />
             <div className={styles.error}>
-              {errors?.shortDescription && (
-                <p>{errors?.shortDescription?.message}</p>
-              )}
+              {errors?.description && <p>{errors?.description?.message}</p>}
             </div>
           </label>
           <label>
             Text
             <textarea
-              className={errors.text ? styles.inputTextError : styles.inputText}
+              className={errors.body ? styles.inputTextError : styles.inputText}
               placeholder="Text"
               {...register("body", {
                 required: "This field is required",
               })}
             />
             <div className={styles.error}>
-              {errors?.text && <p>{errors?.text?.message}</p>}
+              {errors?.body && <p>{errors?.body?.message}</p>}
             </div>
           </label>
 
